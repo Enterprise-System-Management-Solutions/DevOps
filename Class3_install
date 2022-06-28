@@ -1,0 +1,75 @@
+
+login in system
+#ssh -i new_node.cer ubuntu@hostip
+
+#sudo apt update
+
+--Docker install
+#sudo apt install docker.io -y
+#sudo systemctl enable docker
+#sudo sytemctl status
+#ps aux | grep docker
+
+---Make a docker file
+https://docs.docker.com/engine/reference/builder/
+#mkdir nginx
+#cd nginx
+#vi dockerfile
+FROM ubuntu
+ENTRYPOINT ["sleep","3000"]
+
+#sudo docker build -t hi .
+#sudo docker run hi
+
+https://docs.docker.com/engine/reference/commandline/cli/   (for CLI)
+
+#sudo docker ps (checking how many container)
+#sudo ps aux | grep docker
+---to in a container  
+#sudo docker exec -it (container_id) sh
+#ps aux (basic checking)
+---
+#sudo docker images ls -a  ( checking docker size )
+stoping docker
+#sudo docker ps
+#sudo docker stop (container_ID) 
+
+
+/*- Block start1--*/
+/*------Now trying to install python3 in docker---------------*/
+---Entrypont always execute when you run image ( when it convert container) 
+-----
+#cd nginx
+#vi dockerfile
+FROM ubuntu
+RUN apt update
+ENTRYPOINT ["sleep","3000"]
+#sudo docker build -t hi .
+
+#cd nginx
+#vi dockerfile
+FROM ubuntu
+RUN apt update
+RUN apt install python3 -y
+ENTRYPOINT ["sleep","3000"]
+#sudo docker build -t hi .
+
+--Suppose I want to run the service from docker 
+#cd nginx
+#vi dockerfile
+FROM ubuntu
+RUN apt update
+RUN apt install python3 -y
+ENTRYPOINT ["python3","-m", "http.server"]
+#sudo docker build -t hi .
+
+----
+
+
+Image : basiclly a zip file
+Cointainer : when it run the image
+
+https://hub.docker.com/   (Docker image library: it's like maven repo or nodejs )
+
+
+/*- Block End1--*/
