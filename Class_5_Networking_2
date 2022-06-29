@@ -1,0 +1,4 @@
+
+--run nginx service from docker
+#sudo docker run -p 8080:80 nginx
+Host port 8080 & container port 80
