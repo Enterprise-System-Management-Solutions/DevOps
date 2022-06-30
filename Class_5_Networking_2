@@ -1,4 +1,75 @@
 
 --run nginx service from docker
+--docker is written in goline language  which is  call some API from NameSpace
 #sudo docker run -p 8080:80 nginx
 Host port 8080 & container port 80
+
+------------------------config ifconfig
+-- Interface : where packet in/out in kernel
+#sudo apt install net-tools
+#ifconfig
+-here we found docker0, eth0, LO(loopback address) & veth
+-In cloude every node has public IP & Private IP
+---------------------------
+
+----------------------------tcpdump 
+--to check the eth0 interface in/out packets
+#sudo tcpdump -i eth0 
+-to check the specific interface
+# sudo tcpdump -i eth0 dst port 8080
+
+--check the port status in host machine
+#sudo netstat -tunlp
+--request locally to nginx
+#curl http://localhost:8080
+# dig localhost IP -- to check the IP
+-- But above system will not work. I mean , we cann't check the tcp dump for eth0
+we are executing the command for the localhost (loopback address) but pointing the eth0
+
+
+#sudo tcpdump -i lo dstport 8080
+
+#sudo netstat -tunlp  --checking the 8080 port address,
+#sudo iptables -t nat -L
+
+
+
+
+--------------------------------------------
+But if we use below command the eth0 interface will work. 
+sudo docker run -p 80:80 nginx
+
+#sudo tcpdump -i eth0 dst port 80 --check the eth0 port IN/OUT packets
+
+#sudo routes   -- check the route tables -- check the interface & IP address 
+
+#sudo tcpdump -i docker0   -- to check the docker port In/Out
+
+#sudo docker network ls --check the service
+
+#sudo docker network inspect  bridge --to check the container IP & subnet
+----------------------------------------------------
+
+
+
+@In the docker 
+ 
+#sudo docker ps checking the docker ID
+#sudo docker exec -it a05 sh -- to entering docker  
+Difference between bin & sbin 
+always update the apt 1st time in docker
+# apt update
+#apt install net-tools
+
+flows of packets Interface :
+eth0 -> iptable(host) -> routetable(Host) -> veth(Host) -> etho(cotainer) 
+eth0 to IPtables for port
+Iptables to routetable for container IP
+
+#netstat tunlp -- check it in docker nginx server port.
+
+
+
+
+
+
