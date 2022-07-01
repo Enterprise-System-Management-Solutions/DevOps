@@ -31,7 +31,19 @@ veth0
 #ip link -- we will found the ceth0 here
 #ip addr add 192.168.0.3/16 dev ceth0  --adding the ip address with port
 #ip addr  -- checking newly added ip address
-#ip link set ceth0 up 
-#ip addr -- check i for downstae to up state
+#ip link set ceth0 up  -- to up he port
+#ip addr -- check ip but lower layer is down
+#exit -- exit from rednamesapce
+#sudo ip addr add 172.168.0.2/16 dev veth0 -- keep the IP same in another port 
+#sudo ip addr -- still down from both end because we don't up the veth0( inside the red namespace & host machine)
+
+#sudo ip set veth0 up -- now up the veth0
+#sudo ip addr  -- checking the status ... it is up now
+
+Now checking the host route table
+# route
+it is added a new domian 172.168.0.0. Now if we ping the 172.168.0.7 .... it will go veth0
+
+
 
 
