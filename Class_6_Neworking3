@@ -1,0 +1,37 @@
+
+#sudo ip netns add nstns1 --- adding one namespace
+#suod ip netns list
+
+#sudo apt install net-tools
+#sudo ifconfig
+
+--to entering the new namespace
+# sudo ip netns exec red sh
+#ifconfig   --- no interface 
+
+#sudo route   -- has mapping
+--Entering again red namespace 
+#sudo ip netns exec red sh
+#sudo route
+
+---no link found between / namespace & red namespace
+--- now need to create a virtual cable
+#sudo ip link add veth0 type veth peer name ceth0  -it is addedd in / namespace
+# sudo ip list  --- checking total interface
+lo
+eth0
+ceth0
+veth0
+
+#sudo ip link set ceth0 netns red  -- add one part of the cable with red
+#sudo ip link list --checking the free cable 
+
+---logging in the rednamespace
+#sudo ip netns exec red sh
+#ip link -- we will found the ceth0 here
+#ip addr add 192.168.0.3/16 dev ceth0  --adding the ip address with port
+#ip addr  -- checking newly added ip address
+#ip link set ceth0 up 
+#ip addr -- check i for downstae to up state
+
+
