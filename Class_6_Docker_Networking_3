@@ -99,7 +99,13 @@ Again login the netns1 to check the route table
 ---
 
 
+Home work:
+In this doccumentation, we will cover
 
-
+Namespace to Bridge Communication
+Namespace to Root Namespace Communication via Bridge
+Internet Connectivity | ping 8.8.8.8
+Access to Namespace from Outside of the network
+https://github.com/dipanjal/DevOps/tree/main/NetNS_Ingress_Egress_Traffic
 
 
