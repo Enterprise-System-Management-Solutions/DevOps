@@ -1,1 +1,13 @@
 
+Idea for nginx load balancing between two containers using third nginx container node
+
+-We need the idea of ingress 
+-data flows router to detination port
+-iptables
+-route
+-dnet
+-snet
+
+Theory discussion here
+
+
