@@ -4,3 +4,20 @@ Keywords :
 Control plane, Data plane, Masternode( API Server)
 Worker node, etcd database, Schedular,
 Kubelet, Kubectl (cli)
+
+
+---
+Request flows to kublet - API_Server -> etcd database
+
+If we need to lunch a container for python, flows are given below
+
+Kubelet-> API Server -> Scheduler -> Kublet will lunch the container
+
+Deployment -> POD( Multiple container ) -> Service 
+
+-Load Balancer
+-Note Port
+-Cluster IP
+
+-- Labels & Selections
+-- yaml file in master node.
