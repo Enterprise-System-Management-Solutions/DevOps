@@ -1,5 +1,44 @@
 
 In this session, we will perform some handson about kubereties:
 
-1. create a VPC in AWS
-keep in mind: VPC,IGW,SubNet, RouteTable 
+>>create a VPC in AWS
+keep in mind: VPC,IGW,SubNet, RouteTable
+
+##VPC:
+--create vpc in aws  kube-vpc01
+--set ip address 10.10.0.0/16
+--enable the DNS
+##IGW :
+--create internet gateway kube-igw
+-- attach the internet gateway with vpc
+
+##Subnet:
+--attach the subnet with vpc
+--set name for subname : kube-public-subnet-01
+set IP : 10.10.1.0/24
+
+##Route Table 
+--kube-public-rt-01
+--add to it with vpc 
+--subnat association
+
+##lunch a EC2 instance
+--ubunto
+--create two instance (master & worker)
+--network- kube-vpc-01
+--subnet - kube-public-subnet
+--Security group Kube-sg-01
+--download new key pair
+
+
+##connect to master node
+--ssh =i .\kube-key.pem ubuntu@public_ip
+--it will not connect because of no security rule
+#edit Security group
+
+#add route table
+
+# Change hostname
+
+# In master node & worker node 
+-- install docker * kuberneties 
