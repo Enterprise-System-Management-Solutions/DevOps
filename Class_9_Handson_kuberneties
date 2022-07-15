@@ -1,0 +1,5 @@
+
+In this session, we will perform some handson about kubereties:
+
+1. create a VPC in AWS
+keep in mind: VPC,IGW,SubNet, RouteTable 
