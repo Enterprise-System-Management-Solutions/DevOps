@@ -42,3 +42,75 @@ set IP : 10.10.1.0/24
 
 # In master node & worker node 
 -- install docker * kuberneties 
+
+
+
+in Class 10 :
+------------------
+
+#create a new VPC
+	- 10.10.0.0/16
+	- Enable DNS Hostname
+#Internet Gateway
+-k8s-igw-01
+-add it with vpc
+#subnet
+-add it with vpc
+-k8s-public-subnet
+-availability zone(asia pacific mumbai/ap-south-1a)
+-Ipv cipr block 10.10.1.0/24
+-Enable auto assaing public -ipv
+-Enable resource name DNS A record on lunch
+
+#Route Table
+-create route table k8s-rt-01
+-select a vpc
+-route table bind with subnet
+-subnet assiation
+-Edit subnet assioatation
+
+#lunch Instance
+Number of instance 2
+-Select network
+-Select subnet
+-create security group k8s-sg
+-download keypairs
+-rename to hostname for master & worker
+
+#New connectivity check
+	- Unable to login
+	- Need to add route table
+	- Edit route table
+	- Edit route
+	- Add 0.0.0.0/0 add it to igw
+	- Edit security group
+	- Instance -> security -> security group
+	- Edit inbound role
+	- All icmp IPv4 - any where
+
+Now connectivity okay
+
+# now install docker & kubernaties install
+	- Set hotname
+	- Sudo hostnamectl set hostname k8c-master
+	- Sudo apt-get update & sudo apt-get upgrade -y
+Install docker
+	- Sudo apt install docker.io -y
+	- Sudo  systemctl start docker
+	- Sudo systemctl enable docker
+	- Sudo usermod -aG docker $user
+
+#security group
+-edit inbound security
+-all TCP   -> custom -> (only vpc traffic) 10.10.0.0/16
+
+Reference :
+https://docs.docker.com/engine/install/ubuntu/
+https://docs.docker.com/engine/install/linux-postinstall/
+
+installing-k8s-step-by-setp
+https://gist.github.com/dipanjal/9c10952d41813b1b9e4c219152666bec
+
+
+
+
