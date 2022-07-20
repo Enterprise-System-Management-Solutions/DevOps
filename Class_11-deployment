@@ -1,0 +1,20 @@
+#deployment 
+	- Check all pods
+	- Kubectl get pods -A
+	- Kubectl get nodes
+	Create a new files  for deployment and save as  yaml file. 
+	- Kubectl apply -f nginx -deployment .yaml
+	- Kubectl get pods
+	- Kubectl get pods -w
+Checking : curl 10.44.0.2
+	- Sudo kubeadm reset (for reset the cluster)
+	- Kubectl get pods -A
+	- Sudo kubeadmin init (start the pods)
+	- Kube get nodes (checking nodes)
+	- Kube  get pods -A (checking pods)
+	- Sudo docker ps( checking docker process)
+	
+	Class 11 57~61 mins
+	Study weave .. Now  study overlay network
+	
+	Noteport nginx kubernaties 
