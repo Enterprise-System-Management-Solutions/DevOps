@@ -1,0 +1,36 @@
+
+Reference class Link:
+
+https://github.com/kabbo06/docker_overlay_using_vxlan
+
+
+New Term : 
+-TCP dump
+-IP Tables
+-ovs switch
+-ovs layer2 network
+-vxlan, BGP, EVPN
+-GRE, NvGRE
+-VTEP,VNI
+-vxlan, overlaynetwork, underlaynetwork
+-Core DNS
+-SNAT,DNAT
+
+VXLAN class:
+http://github.com/faayam/vxlan-ovs-docker-lab
+
+
+Underlaynetwork:
+------------------
+Physical -> Ethernet , Layer2,Layer3
+Overlaynetwork :
+-----------------
+No Physical network
+
+#Every POD should have one unique IP
+
+Flannel -> Used by Overlay Vxlan 
+
+POD send traffic like Octopus.
+
+Service  is a iptables route.
