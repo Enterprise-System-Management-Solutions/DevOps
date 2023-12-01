@@ -1,5 +1,5 @@
 # DevOps
-it's a basically a training session for DevOps. 
+it's a training session for DevOps. 
 
 docker install :
 ================
